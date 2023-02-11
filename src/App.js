@@ -1,7 +1,7 @@
 function App() {
   return (
-    <div className="App">
-      <h1>TRT PERCENTAGE CONVERTER</h1>
+    <div >
+      <h1 className="font-bold text-green-800">TRT PERCENTAGE CONVERTER</h1>
     </div>
   );
 }
