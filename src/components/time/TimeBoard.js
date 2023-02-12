@@ -12,7 +12,7 @@ export const TimeBoard = ({
 }) => {
     
     return (
-        <div className="flex flex-col p-4 bg-sky-100 justify-center items-center">
+        <div className="flex flex-col p-4 justify-center items-center">
             <div>
                 <TimeBoardName name="Your RT" />
                 <div className="flex items-center bg-161614 p-4 rounded-xl">
@@ -29,7 +29,7 @@ export const TimeBoard = ({
                     <TimeInputWithLabel unit="SEC" time={totalSec} handleTimeChange={(e)=> {handleTotalSecChange(e)}}/>
                 </div>
             </div>
-        <button onClick={computeTotalTime} className="bg-d0f4de text-161614 font-bold rounded-md px-4 py-2 ml-4 ">See my progress! ✨</button>
+        <button onClick={computeTotalTime} className="bg-d0f4de text-161614 font-bold rounded-md px-4 py-2  w-full">See my progress! ✨</button>
        </div>
     );
 }

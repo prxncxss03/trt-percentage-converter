@@ -5,4 +5,3 @@ export const ProgressBar = ({ percentage }) => {
         </div>
     )
 }
-//w-[${percentage}]

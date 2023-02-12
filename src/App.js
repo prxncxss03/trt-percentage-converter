@@ -1,5 +1,11 @@
 import { useState } from "react";
+
 import { TimeBoard } from "./components/time/TimeBoard";
+import { ProgressBar } from "./components/result/ProgressBar";
+import { TimeBoardName } from "./components/time/TimeBoardName";
+import { BsFillMoonFill,BsFillSunFill ,BsSun} from "react-icons/bs";
+import { RiArrowGoBackLine } from "react-icons/ri";
+//RiArrowGoBackLine
 
 function App() {
   const [page, setPage] = useState(1);
@@ -21,29 +27,37 @@ function App() {
   };
 
   const computeTotalTime = () => {
-    setPage(2);
-    let totalUserTime = parseInt(userHr) * 3600 + parseInt(userMin) * 60 + parseInt(userSec);
-    let TotalRT = parseInt(totalHr) * 3600 + parseInt(totalMin) * 60 + parseInt(totalSec);
+    
     if (totalSec === "00" && totalMin === "00" && totalHr === "00"  ) {
-        alert("Please fill in all the fields");
-        return;
+      alert("Please fill in all the fields");
+      return;
     }
     if (userSec === "" && userMin === "" && userHr === "") {
-        alert("Please fill in all the fields");
-        return;
+      alert("Please fill in all the fields");
+      return;
     }
-
+    let totalUserTime = parseInt(userHr) * 3600 + parseInt(userMin) * 60 + parseInt(userSec);
+    let TotalRT = parseInt(totalHr) * 3600 + parseInt(totalMin) * 60 + parseInt(totalSec);
     if (totalUserTime > TotalRT) {
-        alert("Your total time is greater than the total RT time");
-        return;
+      alert("Your total time is greater than the total RT time");
+      return;
     }
+    setPage(2);
+    
     let percentage = (totalUserTime / TotalRT) * 100;
     let percentageRounded = Math.round(percentage * 100) / 100;
     setPercentage(percentageRounded);
 
 }
+
+  const handleChangePage = () => {
+    setPage(1);
+  }
   return (
     <div className="font-sans flex justify-center h-screen items-center">
+    <div>
+      
+    </div>
       {
         page === 1 ? <div className="flex flex-col items-center">
           <TimeBoard 
@@ -56,7 +70,12 @@ function App() {
             computeTotalTime={computeTotalTime}
           />
         </div> : 
-        <div><p>Hello</p></div>
+        <div>
+          <TimeBoardName name="Your progress" />
+          <ProgressBar percentage={percentage} />
+          <p className="font-bold text-xl text-center">{percentage}%</p>
+          <button onClick={handleChangePage} className="bg-e4c1f9  text-161614 font-bold rounded-md px-4 py-2 flex w-full items-center justify-center">Go Back<RiArrowGoBackLine className="ml-2 " /></button>
+        </div>
       }
       
     </div>
