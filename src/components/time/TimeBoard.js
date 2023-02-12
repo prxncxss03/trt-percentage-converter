@@ -1,10 +1,9 @@
 import { useState } from "react";
-
-
 import { TimeInput } from "./TimeInput";
 import { Colon } from "./Colon";
 import { TimeLabel } from "./TimeLabel";
 import { TimeBoardName } from "./TimeBoardName";
+import { ProgressBar } from "../result/ProgressBar"; 
 
 export const TimeBoard = () => {
     const [userHr, setUserHr] = useState("00");
@@ -27,11 +26,11 @@ export const TimeBoard = () => {
     const computeTotalTime = () => {
         let totalUserTime = parseInt(userHr) * 3600 + parseInt(userMin) * 60 + parseInt(userSec);
         let TotalRT = parseInt(totalHr) * 3600 + parseInt(totalMin) * 60 + parseInt(totalSec);
-        if (totalSec === "00" || totalMin === "00" || totalHr === "00" || totalHr === "" || totalMin === "" || totalSec === "" ) {
+        if (totalSec === "00" && totalMin === "00" && totalHr === "00"  ) {
             alert("Please fill in all the fields");
             return;
         }
-        if (userSec === "" || userMin === "" || userHr === "") {
+        if (userSec === "" && userMin === "" && userHr === "") {
             alert("Please fill in all the fields");
             return;
         }
@@ -43,9 +42,6 @@ export const TimeBoard = () => {
         let percentage = (totalUserTime / TotalRT) * 100;
         let percentageRounded = Math.round(percentage * 100) / 100;
         setPercentage(percentageRounded);
-
-
-
 
     }
     return (
@@ -70,6 +66,7 @@ export const TimeBoard = () => {
         <div>
             <p className=" font-bold text-2xl">{percentage}%</p>
         </div>
+        <ProgressBar percentage={percentage} />
             
         </div>
     );
