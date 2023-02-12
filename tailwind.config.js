@@ -11,7 +11,10 @@ module.exports = {
         d84040: "#d84040",
         161614: "#161614",
     },
-  },
+    fontFamily: {
+        'sans': ['Inter', 'sans-serif'],
+    },
+    },
   plugins: [],
 }
 }
