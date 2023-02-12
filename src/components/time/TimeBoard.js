@@ -16,26 +16,12 @@ export const TimeBoard = () => {
 
     const [totalUserTime, setTotalUserTime] = useState("00");
 
-    const handleUserHrChange = (e) => {
-    let length = e.target.value.length;
-    if (length < 3) {
-        setUserHr(e.target.value);  
-    }
-    };
-
-    const handleUserMinChange = (e) => {
-    let length = e.target.value.length;
-    if (length < 3) {
-        setUserMin(e.target.value);
-    }
-    };
-
-    const handleUserSecChange = (e) => {
+    const handleTimeChange = (e,state) => {
         let length = e.target.value.length;
         if (length < 3) {
-            setUserSec(e.target.value);
+            state(e.target.value);
         }
-        };
+    };
 
     const computeTotalTime = () => {
         let totalUserTime = parseInt(userHr) * 3600 + parseInt(userMin) * 60 + parseInt(userSec);
@@ -45,13 +31,19 @@ export const TimeBoard = () => {
     return (
         <div className="flex items-center p-4 ">
             <div className="flex items-center bg-161614 p-4 rounded-xl">
-            <TimeInputWithLabel unit="HR" time={userHr} handleTimeChange={handleUserHrChange}/>
-            <TimeInputWithLabel unit="MIN" time={userMin} handleTimeChange={handleUserMinChange}/>
-            <TimeInputWithLabel unit="SEC" time={userSec} handleTimeChange={handleUserSecChange}/>
-            
-        </div>
+                <TimeInputWithLabel unit="HR" time={userHr} handleTimeChange={(e)=> {handleTimeChange(e, setUserHr)}}/>
+                <TimeInputWithLabel unit="MIN" time={userMin} handleTimeChange={(e)=> {handleTimeChange(e, setUserMin)}}/>
+                <TimeInputWithLabel unit="SEC" time={userSec} handleTimeChange={(e)=> {handleTimeChange(e, setUserSec)}}/>
+            </div>
+
+            <div className="flex items-center bg-161614 p-4 rounded-xl">
+                <TimeInputWithLabel unit="HR" time={totalHr} handleTimeChange={(e)=> {handleTimeChange(e, setTotalHr)}}/>
+                <TimeInputWithLabel unit="MIN" time={totalMin} handleTimeChange={(e)=> {handleTimeChange(e, setTotalMin)}}/>
+                <TimeInputWithLabel unit="SEC" time={totalSec} handleTimeChange={(e)=> {handleTimeChange(e, setTotalSec)}}/>
+            </div>
         <button onClick={computeTotalTime} className="bg-d0f4de text-161614 font-bold rounded-md px-4 py-2 ml-4 ">See my progress! ✨</button>
         <div>
+            {userHr}
             <p className=" font-bold text-2xl">{totalUserTime}</p>
         </div>
             
