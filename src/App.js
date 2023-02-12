@@ -1,7 +1,5 @@
 import { TimeBoard } from "./components/time/TimeBoard";
 
-
-
 function App() {
 
   return (
