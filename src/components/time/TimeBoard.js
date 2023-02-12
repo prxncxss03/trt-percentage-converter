@@ -12,8 +12,8 @@ export const TimeBoard = ({
 }) => {
     
     return (
-        <div className="flex flex-col p-4 justify-center items-center">
-            <div>
+        <div className="flex flex-col w-full p-4 justify-center items-center">
+            <div className="w-full flex flex-col ">
                 <TimeBoardName name="Your RT" />
                 <div className="flex items-center bg-161614 p-4 rounded-xl">
                     <TimeInputWithLabel unit="HR" time={userHr} handleTimeChange={(e)=> {handleUserHrChange(e)}}/>
@@ -21,7 +21,7 @@ export const TimeBoard = ({
                     <TimeInputWithLabel unit="SEC" time={userSec} handleTimeChange={(e)=> {handleUserSecChange(e)}}/>
                 </div>
             </div>
-            <div>
+            <div className="w-full flex flex-col ">
                 <TimeBoardName name="Total RT" />
                 <div className="flex items-center bg-161614 p-4 rounded-xl">
                     <TimeInputWithLabel unit="HR" time={totalHr} handleTimeChange={(e)=> {handleTotalHrChange(e)}}/>
@@ -29,14 +29,14 @@ export const TimeBoard = ({
                     <TimeInputWithLabel unit="SEC" time={totalSec} handleTimeChange={(e)=> {handleTotalSecChange(e)}}/>
                 </div>
             </div>
-        <button onClick={computeTotalTime} className="bg-d0f4de text-161614 font-bold rounded-md px-4 py-2  w-full">See my progress! ✨</button>
+        <button onClick={computeTotalTime} className="mt-4 bg-d0f4de text-161614 font-bold rounded-md px-4 py-2  w-full">See my progress! ✨</button>
        </div>
     );
 }
 
 const TimeInputWithLabel = ({time, handleTimeChange, unit})=>{
     return(
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center w-full">
                 <TimeLabel unit={unit} />
                 <div className="flex items-center justify-center">
                     <TimeInput time={time}  handleTimeChange={handleTimeChange}/>
