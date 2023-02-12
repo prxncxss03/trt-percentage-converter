@@ -8,13 +8,15 @@ import { ProgressBar } from "../result/ProgressBar";
 export const TimeBoard = ({
     userHr,userMin,userSec,totalHr,totalMin,totalSec,computeTotalTime,
     handleUserHrChange,handleUserMinChange,handleUserSecChange,
-    handleTotalHrChange,handleTotalMinChange,handleTotalSecChange
+    handleTotalHrChange,handleTotalMinChange,handleTotalSecChange,
+    error1, error2
 }) => {
     
     return (
         <div className="flex flex-col w-full p-4 justify-center items-center">
             <div className="w-full flex flex-col ">
                 <TimeBoardName name="Your RT" />
+                <ErrorMessage message={error1}></ErrorMessage>
                 <div className="flex items-center bg-161614 p-4 rounded-xl">
                     <TimeInputWithLabel unit="HR" time={userHr} handleTimeChange={(e)=> {handleUserHrChange(e)}}/>
                     <TimeInputWithLabel unit="MIN" time={userMin} handleTimeChange={(e)=> {handleUserMinChange(e)}}/>
@@ -23,13 +25,19 @@ export const TimeBoard = ({
             </div>
             <div className="w-full flex flex-col ">
                 <TimeBoardName name="Total RT" />
+                <ErrorMessage message={error2}></ErrorMessage>
                 <div className="flex items-center bg-161614 p-4 rounded-xl">
                     <TimeInputWithLabel unit="HR" time={totalHr} handleTimeChange={(e)=> {handleTotalHrChange(e)}}/>
                     <TimeInputWithLabel unit="MIN" time={totalMin} handleTimeChange={(e)=> {handleTotalMinChange(e)}}/>
                     <TimeInputWithLabel unit="SEC" time={totalSec} handleTimeChange={(e)=> {handleTotalSecChange(e)}}/>
                 </div>
             </div>
-        <button onClick={computeTotalTime} className="mt-4 bg-d0f4de text-161614 font-bold rounded-md px-4 py-2  w-full">See my progress! ✨</button>
+            
+            <button onClick={computeTotalTime} className=
+            "mt-4 bg-d0f4de text-161614 font-bold rounded-md px-4 py-2 w-full">See my progress! ✨</button>
+        
+            
+        
        </div>
     );
 }
@@ -45,5 +53,11 @@ const TimeInputWithLabel = ({time, handleTimeChange, unit})=>{
                     }
                 </div>
             </div>
+    )
+}
+
+const ErrorMessage = ({message}) => {
+    return(
+        <p className="text-red-500">{message}</p>
     )
 }

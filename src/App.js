@@ -18,36 +18,54 @@ function App() {
   const [totalHr, setTotalHr] = useState("00");
 
   const [percentage, setPercentage] = useState(0);
+  const [percentageBool, setPercentageBool] = useState(true);
+
+  const [error1, setError1] = useState("");
+  const [error2, setError2] = useState("");
+
+  
 
   const handleTimeChange = (e,state) => {
       let length = e.target.value.length;
       if (length < 3) {
           state(e.target.value);
-      }
-
-      
-     
+          setError1("");
+          setError2("");
+          setPercentageBool(true)
+      } 
   };
 
   const computeTotalTime = () => {
     
     if (totalSec === "00" && totalMin === "00" && totalHr === "00"  ) {
-      alert("Please fill in all the fields");
+      setError2("This field cannot be empty");
       return;
     }
     if (userSec === "" && userMin === "" && userHr === "") {
-      alert("Please fill in all the fields");
+      setError1("This field cannot be empty");
       return;
     }
     //if greater than 60
-    if (parseInt(userSec) > 60 || parseInt(userMin) > 60 || parseInt(totalMin) > 60 || parseInt(totalSec) > 60) {
-      alert("Please enter a valid time");
+    if (parseInt(userSec) > 60 || parseInt(userMin) > 60 ) {
+      setError1("Please enter a valid time");
+      return;
+    }
+    if (parseInt(totalMin) > 60 || parseInt(totalSec) > 60){
+      setError2("Please enter a valid time");
       return;
     }
     let totalUserTime = parseInt(userHr ? userHr : 0) * 3600 + parseInt(userMin ? userMin : 0 ) * 60 + parseInt(userSec ? userSec : 0);
     let TotalRT = parseInt(totalHr ? totalHr : 0) * 3600 + parseInt(totalMin ? totalMin : 0) * 60 + parseInt(totalSec ? totalSec : 0);
+    if (totalUserTime === 0) {
+      setError1("Your progress should not be zero");
+      return;
+    }
+    if (TotalRT === 0) {
+      setError2("Total time cannot be zero");
+      return;
+    }
     if (totalUserTime > TotalRT) {
-      alert("Your total time is greater than the total RT time");
+      setError1("The time you entered is greater than the total time");
       return;
     }
     setPage(2);
@@ -78,7 +96,12 @@ function App() {
     </div>
       {
         page === 1 ? <div className="flex flex-col items-center w-full mb-6">
+          <div>
+            
+          </div>
           <TimeBoard 
+            error1={error1}
+            error2={error2}
             userHr={userHr} handleUserHrChange={(e)=> {handleTimeChange(e, setUserHr)}}
             userMin={userMin} handleUserMinChange={(e)=> {handleTimeChange(e, setUserMin)}}
             userSec={userSec} handleUserSecChange={(e)=> {handleTimeChange(e, setUserSec)}}
