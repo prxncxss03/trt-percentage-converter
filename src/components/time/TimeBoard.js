@@ -15,7 +15,7 @@ export const TimeBoard = () => {
     const [totalMin, setTotalMin] = useState("00");
     const [totalHr, setTotalHr] = useState("00");
 
-    const [totalUserTime, setTotalUserTime] = useState("00");
+    const [percentage, setPercentage] = useState(0);
 
     const handleTimeChange = (e,state) => {
         let length = e.target.value.length;
@@ -26,7 +26,26 @@ export const TimeBoard = () => {
 
     const computeTotalTime = () => {
         let totalUserTime = parseInt(userHr) * 3600 + parseInt(userMin) * 60 + parseInt(userSec);
-        setTotalUserTime(totalUserTime);
+        let TotalRT = parseInt(totalHr) * 3600 + parseInt(totalMin) * 60 + parseInt(totalSec);
+        if (totalSec === "00" || totalMin === "00" || totalHr === "00" || totalHr === "" || totalMin === "" || totalSec === "" ) {
+            alert("Please fill in all the fields");
+            return;
+        }
+        if (userSec === "" || userMin === "" || userHr === "") {
+            alert("Please fill in all the fields");
+            return;
+        }
+
+        if (totalUserTime > TotalRT) {
+            alert("Your total time is greater than the total RT time");
+            return;
+        }
+        let percentage = (totalUserTime / TotalRT) * 100;
+        let percentageRounded = Math.round(percentage * 100) / 100;
+        setPercentage(percentageRounded);
+
+
+
 
     }
     return (
@@ -49,8 +68,7 @@ export const TimeBoard = () => {
             </div>
         <button onClick={computeTotalTime} className="bg-d0f4de text-161614 font-bold rounded-md px-4 py-2 ml-4 ">See my progress! ✨</button>
         <div>
-            {userHr}
-            <p className=" font-bold text-2xl">{totalUserTime}</p>
+            <p className=" font-bold text-2xl">{percentage}%</p>
         </div>
             
         </div>
