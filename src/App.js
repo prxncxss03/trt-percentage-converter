@@ -77,7 +77,7 @@ function App() {
       </button>
     </div>
       {
-        page === 1 ? <div className="flex flex-col items-center w-full">
+        page === 1 ? <div className="flex flex-col items-center w-full mb-6">
           <TimeBoard 
             userHr={userHr} handleUserHrChange={(e)=> {handleTimeChange(e, setUserHr)}}
             userMin={userMin} handleUserMinChange={(e)=> {handleTimeChange(e, setUserMin)}}
