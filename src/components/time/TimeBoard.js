@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { TimeInput } from "./TimeInput";
 import { Colon } from "./Colon";
 import { TimeLabel } from "./TimeLabel";
@@ -13,7 +13,7 @@ export const TimeBoard = ({
 }) => {
     
     return (
-        <div className="flex flex-col w-full p-4 justify-center items-center">
+        <div className="flex flex-col w-full p-4 justify-center items-center select-none">
             <div className="w-full flex flex-col md:w-1/2 lg:w-5/12">
                 <TimeBoardName name="Your RT" />
                 <ErrorMessage message={error1}></ErrorMessage>

@@ -19,7 +19,6 @@ function App() {
   const [totalHr, setTotalHr] = useState("00");
 
   const [percentage, setPercentage] = useState(0);
-  const [percentageBool, setPercentageBool] = useState(true);
 
   const [error1, setError1] = useState("");
   const [error2, setError2] = useState("");
@@ -32,7 +31,6 @@ function App() {
           state(e.target.value);
           setError1("");
           setError2("");
-          setPercentageBool(true)
       } 
   };
 
@@ -82,9 +80,11 @@ function App() {
   }
 
   let message = {
+    10: "Go go go!",
     20: "Celebrate small wins",
     40: "You're doing great keep it up",
     50: "You're half way na yey!",
+    75: "Going strong!",
     90: "You're almost there!",
     100: "You're done! Congratulations!"
   }
@@ -118,7 +118,7 @@ function App() {
             <p className="font-bold text-xl text-center my-2">{percentage}%</p>
             <p className="font-bold mt-2 text-center">
               {
-                percentage < 20 ? message[20] : percentage < 40 ? message[40] : percentage == 50 ? message[50] : percentage < 99.99 ? message[90] : message[100]
+                percentage < 10 ? message[10] : percentage < 20 ? message[20] : percentage < 40 ? message[40] : percentage === 50 ? message[50] : percentage < 75 ? message[75] : percentage < 99.99 ? message[90] : message[100]
               }
             </p>
           </div>

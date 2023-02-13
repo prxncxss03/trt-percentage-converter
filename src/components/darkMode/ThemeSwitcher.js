@@ -4,7 +4,6 @@ import { RiMoonClearLine, RiSunLine } from "react-icons/ri";
 
 export const ThemeSwitcher = () => {
     const [colorTheme, setTheme] = useDarkMode();
-    const [icon, setIcon] = useState(<RiMoonClearLine />);
     const [darkMode, setDarkMode] = useState(
         colorTheme === "light" ? true : false
     )
