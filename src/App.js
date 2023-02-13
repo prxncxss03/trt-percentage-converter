@@ -89,7 +89,7 @@ function App() {
     100: "You're done! Congratulations!"
   }
   return (
-    <div className="font-sans flex flex-col md:p-6 bg-gray-100 dark:bg-161614 dark:text-white  h-screen items-center ">
+    <div className="font-sans flex flex-col md:p-6 bg-gray-200 dark:bg-161614 dark:text-white  h-screen items-center ">
     <div className="absolute top-0 right-0 p-4">
       <ThemeSwitcher />
     </div>
@@ -119,7 +119,7 @@ function App() {
               }
             </p>
           </div>
-          <button onClick={handleChangePage} className="bg-e4c1f9  text-161614 font-bold rounded-md px-4 py-2 flex w-full items-center justify-center">Go Back<RiArrowGoBackLine className="ml-2 " /></button>
+          <button onClick={handleChangePage} className="bg-e4c1f9 shadow-sm  text-161614 font-bold rounded-md px-4 py-2 flex w-full items-center justify-center">Go Back<RiArrowGoBackLine className="ml-2 " /></button>
         </div>
       }
       <Footer />

@@ -34,7 +34,7 @@ export const TimeBoard = ({
             </div>
             
             <button onClick={computeTotalTime} className=
-            "mt-4 bg-d0f4de text-161614 font-bold md:w-1/2 lg:w-5/12 rounded-md px-4 py-2 w-full">See my progress! ✨</button>
+            "mt-4 bg-d0f4de text-161614 font-bold md:w-1/2 lg:w-5/12 rounded-md px-4 py-2 w-full shadow-sm">See my progress! ✨</button>
         
             
         
