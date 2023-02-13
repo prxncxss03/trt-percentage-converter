@@ -89,7 +89,7 @@ function App() {
     100: "You're done! Congratulations!"
   }
   return (
-    <div className="font-sans flex flex-col md:px-6 bg-gray-200 dark:bg-161614 dark:text-white  h-screen items-center ">
+    <div className="font-sans flex flex-col md:px-6 bg-gray-100 dark:bg-161614 dark:text-white  h-screen items-center ">
     <div className="absolute top-0 right-0 p-4">
       <ThemeSwitcher />
     </div>
