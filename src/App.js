@@ -88,7 +88,7 @@ function App() {
     100: "You're done! Congratulations!"
   }
   return (
-    <div className="font-sans flex flex-col  justify-center h-screen items-center ">
+    <div className="font-sans flex flex-col dark:bg-161614 dark:text-white justify-center h-screen items-center ">
     <div className="absolute top-0 right-0 p-4">
       <button>
         <BsFillMoonFill className="text-4xl  text-black" />
