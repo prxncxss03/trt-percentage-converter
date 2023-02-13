@@ -89,16 +89,13 @@ function App() {
     100: "You're done! Congratulations!"
   }
   return (
-    <div className="font-sans flex flex-col md:p-6 bg-gray-100 dark:bg-161614 dark:text-white justify-center h-screen items-center ">
+    <div className="font-sans flex flex-col md:p-6 bg-gray-100 dark:bg-161614 dark:text-white  h-screen items-center ">
     <div className="absolute top-0 right-0 p-4">
       <ThemeSwitcher />
     </div>
     
       {
-        page === 1 ? <div className="flex flex-col items-center w-full mb-6">
-          <div>
-            
-          </div>
+        page === 1 ? <div className="flex flex-col items-center  w-full mb-6 h-full justify-center">
           <TimeBoard 
             error1={error1}
             error2={error2}
@@ -111,7 +108,7 @@ function App() {
             computeTotalTime={computeTotalTime}
           />
         </div> : 
-        <div className="flex flex-col w-full  md:w-1/2 lg:w-5/12 px-4">
+        <div className="flex flex-col w-full h-full md:w-1/2 lg:w-5/12 px-4 justify-center">
           <TimeBoardName name="Your progress" />
           <div className="mt-10 mb-10">
             <ProgressBar percentage={percentage} />
