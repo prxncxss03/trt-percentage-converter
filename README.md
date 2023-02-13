@@ -1,6 +1,7 @@
 # TRT to PERCENTAGE CONVERTER
 ![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 📕History
 <img alt="draft" src="https://user-images.githubusercontent.com/84000523/218385585-957a97d8-0669-47d5-a085-9892c094a750.png" width="300">
