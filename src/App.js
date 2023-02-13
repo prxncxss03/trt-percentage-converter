@@ -5,6 +5,7 @@ import { TimeBoard } from "./components/time/TimeBoard";
 import { ProgressBar } from "./components/result/ProgressBar";
 import { TimeBoardName } from "./components/time/TimeBoardName";
 import { RiArrowGoBackLine } from "react-icons/ri";
+import { Footer } from "./components/footer/Footer";
 //RiArrowGoBackLine
 
 function App() {
@@ -124,6 +125,7 @@ function App() {
           <button onClick={handleChangePage} className="bg-e4c1f9  text-161614 font-bold rounded-md px-4 py-2 flex w-full items-center justify-center">Go Back<RiArrowGoBackLine className="ml-2 " /></button>
         </div>
       }
+      <Footer />
       
     </div>
   );
