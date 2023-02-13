@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { ThemeSwitcher } from "./components/darkMode/ThemeSwitcher";
 import { TimeBoard } from "./components/time/TimeBoard";
 import { ProgressBar } from "./components/result/ProgressBar";
 import { TimeBoardName } from "./components/time/TimeBoardName";
@@ -90,10 +91,9 @@ function App() {
   return (
     <div className="font-sans flex flex-col dark:bg-161614 dark:text-white justify-center h-screen items-center ">
     <div className="absolute top-0 right-0 p-4">
-      <button>
-        <BsFillMoonFill className="text-4xl  text-black" />
-      </button>
+      <ThemeSwitcher />
     </div>
+    
       {
         page === 1 ? <div className="flex flex-col items-center w-full mb-6">
           <div>

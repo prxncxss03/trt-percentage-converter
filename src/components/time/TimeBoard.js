@@ -17,7 +17,7 @@ export const TimeBoard = ({
             <div className="w-full flex flex-col ">
                 <TimeBoardName name="Your RT" />
                 <ErrorMessage message={error1}></ErrorMessage>
-                <div className="flex items-center bg-161614 p-4 rounded-xl">
+                <div className="flex items-center bg-161614 dark:bg-gray-600 p-4 rounded-xl">
                     <TimeInputWithLabel unit="HR" time={userHr} handleTimeChange={(e)=> {handleUserHrChange(e)}}/>
                     <TimeInputWithLabel unit="MIN" time={userMin} handleTimeChange={(e)=> {handleUserMinChange(e)}}/>
                     <TimeInputWithLabel unit="SEC" time={userSec} handleTimeChange={(e)=> {handleUserSecChange(e)}}/>
@@ -26,7 +26,7 @@ export const TimeBoard = ({
             <div className="w-full flex flex-col ">
                 <TimeBoardName name="Total RT" />
                 <ErrorMessage message={error2}></ErrorMessage>
-                <div className="flex items-center bg-161614 p-4 rounded-xl">
+                <div className="flex items-center bg-161614 dark:bg-gray-600 p-4 rounded-xl">
                     <TimeInputWithLabel unit="HR" time={totalHr} handleTimeChange={(e)=> {handleTotalHrChange(e)}}/>
                     <TimeInputWithLabel unit="MIN" time={totalMin} handleTimeChange={(e)=> {handleTotalMinChange(e)}}/>
                     <TimeInputWithLabel unit="SEC" time={totalSec} handleTimeChange={(e)=> {handleTotalSecChange(e)}}/>

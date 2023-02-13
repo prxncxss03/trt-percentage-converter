@@ -10,7 +10,7 @@ export const TimeInput = ({ time,handleTimeChange }) => {
             id="time"
             value={time}
             onChange={handleTimeChange}
-            className=" bg-transparent text-e4c1f9 font-bold w-14 text-center outline-none text-4xl"
+            className=" bg-transparent text-e4c1f9 dark:drop-shadow-sm font-bold w-14 text-center outline-none text-4xl"
         />
         </div>
     );
