@@ -13,9 +13,15 @@ For example, you are watching a 12hr Python Tutorial. And you want to know your 
 ![yt](https://user-images.githubusercontent.com/84000523/218392339-4d0c9094-0a6b-4aa6-869d-520cd589f47b.png)  
 ![sample1](https://user-images.githubusercontent.com/84000523/218394181-3796d19d-a144-4344-9971-7a20c6fa66d4.png)
 
+## 🎥Demo
+https://user-images.githubusercontent.com/84000523/218437033-19e5596c-fd5c-4f6c-a5bb-07f9f59542bd.mp4
+
+
+## 👀[Live Demo](https://prxncxss03.github.io/trt-percentage-converter/)
+
 ## Credits
-- GeeksforGeeks for dark mode
-- Envoy-VC for badges
+- [GeeksforGeeks](https://www.geeksforgeeks.org/how-to-add-dark-mode-in-reactjs-using-tailwind-css/
+) for dark mode
 
 
 
