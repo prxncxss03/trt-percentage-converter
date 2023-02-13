@@ -1,6 +1,6 @@
 export const ProgressBar = ({ percentage }) => {
     return (
-        <div className="flex  bg-161614 dark:bg-gray-600 rounded-full w-full">
+        <div className="flex  bg-161614 dark:bg-gray-600  rounded-full w-full">
             <div className={`rounded-full bg-d0f4de py-4` } style={{width: `${percentage}%`}}></div>
         </div>
     )

@@ -4,7 +4,6 @@ import { ThemeSwitcher } from "./components/darkMode/ThemeSwitcher";
 import { TimeBoard } from "./components/time/TimeBoard";
 import { ProgressBar } from "./components/result/ProgressBar";
 import { TimeBoardName } from "./components/time/TimeBoardName";
-import { BsFillMoonFill,BsFillSunFill ,BsSun} from "react-icons/bs";
 import { RiArrowGoBackLine } from "react-icons/ri";
 //RiArrowGoBackLine
 
@@ -89,7 +88,7 @@ function App() {
     100: "You're done! Congratulations!"
   }
   return (
-    <div className="font-sans flex flex-col dark:bg-161614 dark:text-white justify-center h-screen items-center ">
+    <div className="font-sans flex flex-col md:p-6 bg-gray-100 dark:bg-161614 dark:text-white justify-center h-screen items-center ">
     <div className="absolute top-0 right-0 p-4">
       <ThemeSwitcher />
     </div>
@@ -111,7 +110,7 @@ function App() {
             computeTotalTime={computeTotalTime}
           />
         </div> : 
-        <div className="flex flex-col w-full px-4">
+        <div className="flex flex-col w-full  md:w-1/2 lg:w-5/12 px-4">
           <TimeBoardName name="Your progress" />
           <div className="mt-10 mb-10">
             <ProgressBar percentage={percentage} />
