@@ -11,6 +11,7 @@ module.exports = {
         d0f4de: "#d0f4de",
         d84040: "#d84040",
         161614: "#161614",
+        fcf6bd: "#fcf6bd",
     },
     fontFamily: {
         'sans': ['Inter', 'sans-serif'],
