@@ -6,6 +6,8 @@ import { ProgressBar } from "./components/result/ProgressBar";
 import { TimeBoardName } from "./components/time/TimeBoardName";
 import { RiArrowGoBackLine } from "react-icons/ri";
 import { Footer } from "./components/footer/Footer";
+import { Result1 } from "./components/result/Result1";
+import { Home } from "./components/home/Home";
 //RiArrowGoBackLine
 
 function App() {
@@ -75,19 +77,11 @@ function App() {
 
 }
 
-  const handleChangePage = () => {
-    setPage(1);
+  const handleChangePage = (page) => {
+    setPage(page);
   }
 
-  let message = {
-    10: "Go go go!",
-    20: "Celebrate small wins",
-    40: "You're doing great keep it up",
-    50: "You're half way na yey!",
-    75: "Going strong!",
-    90: "You're almost there!",
-    100: "You're done! Congratulations!"
-  }
+  
   return (
     <div className="font-sans flex flex-col md:px-6 bg-gray-100 dark:bg-161614 dark:text-white  h-screen items-center ">
     <div className="absolute top-0 right-0 p-4">
@@ -95,7 +89,8 @@ function App() {
     </div>
     
       {
-        page === 1 ? <div className="flex flex-col items-center  w-full mb-6 h-full justify-center">
+        page === 1 ? <Home handleChangePage1={()=> handleChangePage(2)} handleChangePage2 ={()=> handleChangePage(4)} ></Home>
+        : page === 2 ? <div className="flex flex-col items-center  w-full mb-6 h-full justify-center">
           <TimeBoard 
             error1={error1}
             error2={error2}
@@ -108,19 +103,9 @@ function App() {
             computeTotalTime={computeTotalTime}
           />
         </div> : 
-        <div className="flex flex-col w-full h-full md:w-1/2 lg:w-5/12 px-4 justify-center">
-          <TimeBoardName name="Your progress" />
-          <div className="mt-10 mb-10">
-            <ProgressBar percentage={percentage} />
-            <p className="font-bold text-xl text-center my-2">{percentage}%</p>
-            <p className="font-bold mt-2 text-center">
-              {
-                percentage < 10 ? message[10] : percentage < 20 ? message[20] : percentage < 40 ? message[40] : percentage === 50 ? message[50] : percentage < 75 ? message[75] : percentage < 99.99 ? message[90] : message[100]
-              }
-            </p>
-          </div>
-          <button onClick={handleChangePage} className="bg-e4c1f9 shadow-sm  text-161614 font-bold rounded-md px-4 py-2 flex w-full items-center justify-center">Go Back<RiArrowGoBackLine className="ml-2 " /></button>
-        </div>
+        page === 3 ?
+        <Result1 percentage={percentage} handleChangePage={handleChangePage}></Result1>
+        : null
       }
       <Footer />
       
