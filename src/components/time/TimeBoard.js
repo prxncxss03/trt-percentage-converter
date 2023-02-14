@@ -1,20 +1,21 @@
-import { IndivTimeBoard } from "./IndivTimeBoard";
+import {BoardName} from '../general/BoardName';
+import {TimeInputWithLabel} from './TimeInputWithLabel';
+import {ErrorMessage} from './ErrorMessage';
 
 export const TimeBoard = ({
-    userHr,userMin,userSec,totalHr,totalMin,totalSec,computeTotalTime,
-    handleUserHrChange,handleUserMinChange,handleUserSecChange,
-    handleTotalHrChange,handleTotalMinChange,handleTotalSecChange,
-    error1, error2
+    name,error, timeMIN, timeHR, timeSEC,  handleTimeHrChange, handleTimeMinChange, handleTimeSecChange
 }) => {
-    
-    return (
-        <div className="flex flex-col w-full p-4 justify-center items-center select-none">
-            <IndivTimeBoard name="Your RT" error={error1} timeHR={userHr} timeMIN={userMin} timeSEC={userSec} handleTimeHrChange={handleUserHrChange} handleTimeMinChange={handleUserMinChange} handleTimeSecChange={handleUserSecChange}></IndivTimeBoard>
-            <IndivTimeBoard name="Total RT" error={error2} timeHR={totalHr} timeMIN={totalMin} timeSEC={totalSec} handleTimeHrChange={handleTotalHrChange} handleTimeMinChange={handleTotalMinChange} handleTimeSecChange={handleTotalSecChange}></IndivTimeBoard>      
-            <button onClick={computeTotalTime} className=
-            "mt-4 bg-d0f4de text-161614 font-bold md:w-1/2 lg:w-5/12 rounded-md px-4 py-2 w-full shadow-sm">See my progress! ✨</button>
-       </div>
-    );
+    return(
+        <div className="w-full flex flex-col ">
+                <BoardName name={name} />
+                <ErrorMessage message={error}></ErrorMessage>
+                <div className="flex items-center bg-161614 dark:bg-gray-600 p-4 rounded-xl">
+                    <TimeInputWithLabel unit="HR" time={timeHR} handleTimeChange={(e)=> {handleTimeHrChange(e)}}/>
+                    <TimeInputWithLabel unit="MIN" time={timeMIN} handleTimeChange={(e)=> {handleTimeMinChange(e)}}/>
+                    <TimeInputWithLabel unit="SEC" time={timeSEC} handleTimeChange={(e)=> {handleTimeSecChange(e)}}/>
+                </div>
+        </div>
+    )
 }
 
 

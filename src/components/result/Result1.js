@@ -1,8 +1,9 @@
-import { TimeBoardName } from "../time/TimeBoardName"
-import { RiArrowGoBackLine } from "react-icons/ri"
+import { BoardName } from "../general/BoardName"
 import { ProgressBar } from "./ProgressBar"
+import { HomeBtn } from "../home/HomeBtn"
+import { GoBackBtn } from "../general/GoBackBtn"
 
-export const Result1 = ({percentage, handleChangePage}) => {
+export const Result1 = ({percentage, handleChangePage,GoHomePage}) => {
     let message = {
         10: "Go go go!",
         20: "Celebrate small wins",
@@ -15,7 +16,7 @@ export const Result1 = ({percentage, handleChangePage}) => {
 
     return(
         <div className="flex flex-col w-full h-full md:w-1/2 lg:w-5/12 px-4 justify-center">
-          <TimeBoardName name="Your progress" />
+          <BoardName name="Your progress" />
           <div className="mt-10 mb-10">
             <ProgressBar percentage={percentage} />
             <p className="font-bold text-xl text-center my-2">{percentage}%</p>
@@ -25,7 +26,8 @@ export const Result1 = ({percentage, handleChangePage}) => {
               }
             </p>
           </div>
-          <button onClick={(e) => handleChangePage(e)} className="bg-e4c1f9 shadow-sm  text-161614 font-bold rounded-md px-4 py-2 flex w-full items-center justify-center">Go Back<RiArrowGoBackLine className="ml-2 " /></button>
+          <GoBackBtn name="Go Back" handleChangePage={handleChangePage} />
+          <HomeBtn name="Go Home" handleChangePage={GoHomePage} />
         </div>
       
     )

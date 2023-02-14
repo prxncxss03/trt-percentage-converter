@@ -1,10 +1,7 @@
 import { useState } from "react";
 
 import { ThemeSwitcher } from "./components/darkMode/ThemeSwitcher";
-import { TimeBoard } from "./components/time/TimeBoard";
-import { ProgressBar } from "./components/result/ProgressBar";
-import { TimeBoardName } from "./components/time/TimeBoardName";
-import { RiArrowGoBackLine } from "react-icons/ri";
+import { TrtPercentage } from "./components/time/TrtPercentage";
 import { Footer } from "./components/footer/Footer";
 import { Result1 } from "./components/result/Result1";
 import { Home } from "./components/home/Home";
@@ -69,7 +66,7 @@ function App() {
       setError1("The time you entered is greater than the total time");
       return;
     }
-    setPage(2);
+    setPage(3);
     
     let percentage = (totalUserTime / TotalRT) * 100;
     let percentageRounded = Math.round(percentage * 100) / 100;
@@ -91,7 +88,7 @@ function App() {
       {
         page === 1 ? <Home handleChangePage1={()=> handleChangePage(2)} handleChangePage2 ={()=> handleChangePage(4)} ></Home>
         : page === 2 ? <div className="flex flex-col items-center  w-full mb-6 h-full justify-center">
-          <TimeBoard 
+          <TrtPercentage
             error1={error1}
             error2={error2}
             userHr={userHr} handleUserHrChange={(e)=> {handleTimeChange(e, setUserHr)}}
@@ -101,10 +98,12 @@ function App() {
             totalMin={totalMin} handleTotalMinChange={(e)=> {handleTimeChange(e, setTotalMin)}}
             totalSec={totalSec} handleTotalSecChange={(e)=> {handleTimeChange(e, setTotalSec)}}
             computeTotalTime={computeTotalTime}
+            GoHomePage={()=>handleChangePage(1)}
+            
           />
         </div> : 
         page === 3 ?
-        <Result1 percentage={percentage} handleChangePage={handleChangePage}></Result1>
+        <Result1 percentage={percentage} handleChangePage={()=>handleChangePage(2)} GoHomePage={()=>handleChangePage(1)}></Result1>
         : null
       }
       <Footer />
