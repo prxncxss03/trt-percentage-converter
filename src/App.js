@@ -5,7 +5,7 @@ import { TrtPercentage } from "./components/time/TrtPercentage";
 import { Footer } from "./components/footer/Footer";
 import { Result1 } from "./components/result/Result1";
 import { Home } from "./components/home/Home";
-//RiArrowGoBackLine
+import { PercentageTrt } from "./components/percentage/PercentageTrt";
 
 function App() {
   const [page, setPage] = useState(1);
@@ -17,7 +17,13 @@ function App() {
   const [totalMin, setTotalMin] = useState("00");
   const [totalHr, setTotalHr] = useState("00");
 
+  const [totalSec2, setTotalSec2] = useState("00");
+  const [totalMin2, setTotalMin2] = useState("00");
+  const [totalHr2, setTotalHr2] = useState("00");
+
   const [percentage, setPercentage] = useState(0);
+  const [percentageInput, setPercentageInput] = useState(0);
+
 
   const [error1, setError1] = useState("");
   const [error2, setError2] = useState("");
@@ -32,6 +38,8 @@ function App() {
           setError2("");
       } 
   };
+
+ 
 
   const computeTotalTime = () => {
     
@@ -104,7 +112,15 @@ function App() {
         </div> : 
         page === 3 ?
         <Result1 percentage={percentage} handleChangePage={()=>handleChangePage(2)} GoHomePage={()=>handleChangePage(1)}></Result1>
-        : null
+        : page === 4 ?
+        <PercentageTrt 
+        error={error2}
+        timeSEC={totalSec2} handleTotalSecChange={(e)=> {handleTimeChange(e, setTotalSec2)}}
+        timeHR={totalHr2} handleTotalHrChange={(e)=> {handleTimeChange(e, setTotalHr2)}}
+        timeMIN={totalMin2} handleTotalMinChange={(e)=> {handleTimeChange(e, setTotalMin2)}}
+        handleChangePage={()=>handleChangePage(2)} GoHomePage={()=>handleChangePage(1)} percentage={percentageInput}></PercentageTrt>
+        :
+        null
       }
       <Footer />
       
