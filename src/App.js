@@ -22,6 +22,10 @@ function App() {
   const [totalMin2, setTotalMin2] = useState("00");
   const [totalHr2, setTotalHr2] = useState("00");
 
+  const [resultHr, setResultHr] = useState("00");
+  const [resultMin, setResultMin] = useState("00");
+  const [resultSec, setResultSec] = useState("00");
+
   const [percentage, setPercentage] = useState(0);
   const [percentageInput, setPercentageInput] = useState(0);
 
@@ -29,6 +33,7 @@ function App() {
   const [error1, setError1] = useState("");
   const [error2, setError2] = useState("");
   const [error3, setError3] = useState("");
+  const [error4, setError4] = useState("");
 
   
 
@@ -40,6 +45,15 @@ function App() {
           setError2("");
           setError3("");
       } 
+  };
+
+  const handlePercentageChange = (e) => {
+      let length = e.target.value.length;
+      if (length < 3) {
+          setPercentageInput(e.target.value);
+          setError4("");
+          setError3("");
+      }
   };
 
  
@@ -86,6 +100,10 @@ function App() {
 }
 
   const computeRt = () => {
+    //
+    let percentage = (percentageInput/100);
+    
+
     //get the total time of input and convert to seconds
     if (totalSec2 === "00" && totalMin2 === "00" && totalHr2 === "00"  ) {
       setError3("This field cannot be empty");
@@ -105,15 +123,22 @@ function App() {
       setError3("Please enter a valid percentage");
       return;
     }
-    let totalUserTime = (percentageInput / 100) * (parseInt(totalHr2 ? totalHr2 : 0) * 3600 + parseInt(totalMin2 ? totalMin2 : 0) * 60 + parseInt(totalSec2 ? totalSec2 : 0));
-    let totalUserTimeRounded = Math.round(totalUserTime * 100) / 100;
-    let userHr = Math.floor(totalUserTimeRounded / 3600);
-    let userMin = Math.floor((totalUserTimeRounded % 3600) / 60);
-    let userSec = Math.floor((totalUserTimeRounded % 3600) % 60);
-    setUserHr(userHr);
-    setUserMin(userMin);
-    setUserSec(userSec);
+    let totalSeconds = parseInt(totalHr2 ? totalHr2 : 0) * 3600 + parseInt(totalMin2 ? totalMin2 : 0) * 60 + parseInt(totalSec2 ? totalSec2 : 0);
+    let totalUserTimeInSeconds = totalSeconds * percentage;
+    
+    //convert to hours, minutes and seconds
+
+    let hours = parseInt( totalUserTimeInSeconds / 3600 );
+    let minutes = parseInt( (totalUserTimeInSeconds - (hours * 3600)) / 60 );
+    let seconds = Math.floor((totalUserTimeInSeconds - ((hours * 3600) + (minutes * 60))));
+    let result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
+    setResultHr(hours);
+    setResultMin(minutes);
+    setResultSec(seconds);
+    
+    console.log(result);
     setPage(5);
+
 
   }
 
@@ -149,14 +174,18 @@ function App() {
         <Result1 percentage={percentage} handleChangePage={()=>handleChangePage(2)} GoHomePage={()=>handleChangePage(1)}></Result1>
         : page === 4 ?
         <PercentageTrt 
-        error={error2}
+        handlePercentageChange={(e)=> {handlePercentageChange(e)}}
+        error={error3}
         timeSEC={totalSec2} handleTimeSecChange={(e)=> {handleTimeChange(e, setTotalSec2)}}
         timeHR={totalHr2} handleTimeHrChange={(e)=> {handleTimeChange(e, setTotalHr2)}}
         timeMIN={totalMin2} handleTimeMinChange={(e)=> {handleTimeChange(e, setTotalMin2)}}
-        handleChangePage={()=>handleChangePage(5)} GoHomePage={()=>handleChangePage(1)} percentage={percentageInput}></PercentageTrt>
+        handleComputeRt={computeRt}
+        GoHomePage={()=>handleChangePage(1)} percentage={percentageInput}></PercentageTrt>
         :
         page === 5 ?
-        <Result2 percentage={percentageInput} handleChangePage={()=>handleChangePage(4)} GoHomePage={()=>handleChangePage(1)}></Result2>
+        <Result2 
+        timeHR={resultHr} timeMIN={resultMin} timeSEC={resultSec}
+        percentage={percentageInput} handleChangePage={()=>handleChangePage(4)} GoHomePage={()=>handleChangePage(1)}></Result2>
         : null
       }
       <Footer />
