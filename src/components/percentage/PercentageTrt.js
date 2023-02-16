@@ -13,6 +13,7 @@ export const PercentageTrt = ({
     handleTimeHrChange,
     handleTimeMinChange,
     handleTimeSecChange,
+    handleChangePage
 
 }) => {
     return(
@@ -20,7 +21,7 @@ export const PercentageTrt = ({
             
             <PercentageBoard name="Percentage" percentage={percentage} handlePercentageChange={handlePercentageChange}></PercentageBoard>
             <TimeBoard name="Total RT" error={error} timeMIN={timeMIN} timeHR={timeHR} timeSEC={timeSEC} handleTimeHrChange={handleTimeHrChange} handleTimeMinChange={handleTimeMinChange} handleTimeSecChange={handleTimeSecChange}></TimeBoard>
-            <SeeResultBtn name="See Result" />
+            <SeeResultBtn name="See Result" onClick={handleChangePage}/>
             <HomeBtn name="Go Home" handleChangePage={GoHomePage} />
         </div>
     )

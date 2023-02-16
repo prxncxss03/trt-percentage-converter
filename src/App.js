@@ -6,6 +6,7 @@ import { Footer } from "./components/footer/Footer";
 import { Result1 } from "./components/result/Result1";
 import { Home } from "./components/home/Home";
 import { PercentageTrt } from "./components/percentage/PercentageTrt";
+import { Result2 } from "./components/result/Result2";
 
 function App() {
   const [page, setPage] = useState(1);
@@ -27,6 +28,7 @@ function App() {
 
   const [error1, setError1] = useState("");
   const [error2, setError2] = useState("");
+  const [error3, setError3] = useState("");
 
   
 
@@ -36,6 +38,7 @@ function App() {
           state(e.target.value);
           setError1("");
           setError2("");
+          setError3("");
       } 
   };
 
@@ -82,6 +85,38 @@ function App() {
 
 }
 
+  const computeRt = () => {
+    //get the total time of input and convert to seconds
+    if (totalSec2 === "00" && totalMin2 === "00" && totalHr2 === "00"  ) {
+      setError3("This field cannot be empty");
+      return;
+    }
+
+    if (parseInt(totalMin2) > 60 || parseInt(totalSec2) > 60){
+      setError3("Please enter a valid time");
+      return;
+    }
+
+    if (percentageInput === 0) {
+      setError3("This field cannot be empty");
+      return;
+    }
+    if (percentageInput > 100) {
+      setError3("Please enter a valid percentage");
+      return;
+    }
+    let totalUserTime = (percentageInput / 100) * (parseInt(totalHr2 ? totalHr2 : 0) * 3600 + parseInt(totalMin2 ? totalMin2 : 0) * 60 + parseInt(totalSec2 ? totalSec2 : 0));
+    let totalUserTimeRounded = Math.round(totalUserTime * 100) / 100;
+    let userHr = Math.floor(totalUserTimeRounded / 3600);
+    let userMin = Math.floor((totalUserTimeRounded % 3600) / 60);
+    let userSec = Math.floor((totalUserTimeRounded % 3600) % 60);
+    setUserHr(userHr);
+    setUserMin(userMin);
+    setUserSec(userSec);
+    setPage(5);
+
+  }
+
   const handleChangePage = (page) => {
     setPage(page);
   }
@@ -115,12 +150,14 @@ function App() {
         : page === 4 ?
         <PercentageTrt 
         error={error2}
-        timeSEC={totalSec2} handleTotalSecChange={(e)=> {handleTimeChange(e, setTotalSec2)}}
-        timeHR={totalHr2} handleTotalHrChange={(e)=> {handleTimeChange(e, setTotalHr2)}}
-        timeMIN={totalMin2} handleTotalMinChange={(e)=> {handleTimeChange(e, setTotalMin2)}}
-        handleChangePage={()=>handleChangePage(2)} GoHomePage={()=>handleChangePage(1)} percentage={percentageInput}></PercentageTrt>
+        timeSEC={totalSec2} handleTimeSecChange={(e)=> {handleTimeChange(e, setTotalSec2)}}
+        timeHR={totalHr2} handleTimeHrChange={(e)=> {handleTimeChange(e, setTotalHr2)}}
+        timeMIN={totalMin2} handleTimeMinChange={(e)=> {handleTimeChange(e, setTotalMin2)}}
+        handleChangePage={()=>handleChangePage(5)} GoHomePage={()=>handleChangePage(1)} percentage={percentageInput}></PercentageTrt>
         :
-        null
+        page === 5 ?
+        <Result2 percentage={percentageInput} handleChangePage={()=>handleChangePage(4)} GoHomePage={()=>handleChangePage(1)}></Result2>
+        : null
       }
       <Footer />
       
