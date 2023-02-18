@@ -49,7 +49,7 @@ function App() {
 
   const handlePercentageChange = (e) => {
       let length = e.target.value.length;
-      if (length < 3) {
+      if (length < 4) {
           setPercentageInput(e.target.value);
           setError4("");
           setError3("");
@@ -115,8 +115,8 @@ function App() {
       return;
     }
 
-    if (percentageInput === 0) {
-      setError3("This field cannot be empty");
+    if (percentageInput === "" || percentageInput === 0) {
+      setError4("This field cannot be empty");
       return;
     }
     if (percentageInput > 100) {
@@ -175,7 +175,8 @@ function App() {
         : page === 4 ?
         <PercentageTrt 
         handlePercentageChange={(e)=> {handlePercentageChange(e)}}
-        error={error3}
+        error3={error3}
+        error4={error4}
         timeSEC={totalSec2} handleTimeSecChange={(e)=> {handleTimeChange(e, setTotalSec2)}}
         timeHR={totalHr2} handleTimeHrChange={(e)=> {handleTimeChange(e, setTotalHr2)}}
         timeMIN={totalMin2} handleTimeMinChange={(e)=> {handleTimeChange(e, setTotalMin2)}}
