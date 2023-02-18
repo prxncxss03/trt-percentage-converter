@@ -20,11 +20,8 @@ For example, you are watching a 12hr Python Tutorial and you want to know your p
 ![image](https://user-images.githubusercontent.com/84000523/219849805-be1f3bd3-e9e5-47fc-92d7-3fa2431ae970.png)
 
 
-
-
 ## 🎥Demo
-https://user-images.githubusercontent.com/84000523/219850432-f2335309-4708-494a-949b-dbe410bfc95a.mp4
-
+https://user-images.githubusercontent.com/84000523/219857770-50876774-1d82-4839-b856-cf97f2e7f842.mp4
 
 
 ## 👀[Live Demo](https://prxncxss03.github.io/trt-percentage-converter/)
