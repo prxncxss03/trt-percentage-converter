@@ -119,8 +119,8 @@ function App() {
       setError4("This field cannot be empty");
       return;
     }
-    if (percentageInput > 100) {
-      setError3("Please enter a valid percentage");
+    if (percentageInput > 100 || percentageInput < 0) {
+      setError4("Please enter a valid percentage");
       return;
     }
     let totalSeconds = parseInt(totalHr2 ? totalHr2 : 0) * 3600 + parseInt(totalMin2 ? totalMin2 : 0) * 60 + parseInt(totalSec2 ? totalSec2 : 0);

@@ -9,7 +9,7 @@ export const PercentageInput = ({ percentage,handlePercentageChange }) => {
             id="percentage"
             value={percentage}
             onChange={handlePercentageChange}
-            className=" bg-transparent text-e4c1f9 dark:drop-shadow-sm font-bold w-16 text-center outline-none text-4xl "
+            className=" bg-transparent text-e4c1f9 dark:drop-shadow-sm font-bold w-[5rem] text-center outline-none text-4xl "
         />
         </div>
     );

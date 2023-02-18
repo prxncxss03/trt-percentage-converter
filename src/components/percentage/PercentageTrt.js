@@ -18,7 +18,7 @@ export const PercentageTrt = ({
 
 }) => {
     return(
-        <div className="flex flex-col h-full justify-center md:w-1/2 lg:w-5/12 w-full">
+        <div className="flex flex-col h-full justify-center md:w-1/2 lg:w-5/12 w-full p-4">
             <PercentageBoard name="Percentage" percentage={percentage} error4={error4} handlePercentageChange={handlePercentageChange}></PercentageBoard>
             <TimeBoard name="Total RT" error={error3} timeMIN={timeMIN} timeHR={timeHR} timeSEC={timeSEC} handleTimeHrChange={handleTimeHrChange} handleTimeMinChange={handleTimeMinChange} handleTimeSecChange={handleTimeSecChange}></TimeBoard>
             <SeeResultBtn name="See Result" onClick={handleComputeRt}/>
