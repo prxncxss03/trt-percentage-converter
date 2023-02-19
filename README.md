@@ -5,7 +5,7 @@
 
 ## 📕History
 <img alt="draft" src="https://user-images.githubusercontent.com/84000523/218385585-957a97d8-0669-47d5-a085-9892c094a750.png" width="300">
-The idea came up because I wanted to know my progress in percentages when it comes to RT. However, when I searched for it I wasn't able to find one (although there are) but this app was designed specifically for my problem so there is quite uniqueness in it.
+The idea came up because I wanted to know my progress in percentages when it comes to RT. However, when I searched for it I wasn't able to find one (although there are) but this app was designed specifically for my problem so there is quite a uniqueness in it.
 
 ## 📜Use
 RT stands for "Running Time"  
