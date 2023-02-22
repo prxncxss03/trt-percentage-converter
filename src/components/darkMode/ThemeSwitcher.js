@@ -14,7 +14,7 @@ export const ThemeSwitcher = () => {
     };
 
     return(
-        <button onClick={handleThemeChange} className="bg-transparent focus:outline-none">
+        <button onClick={handleThemeChange} className="bg-transparent focus:outline-none hover:scale-125  transition-all hover:skew-y-3 md:transform-none">
             {darkMode ? <RiSunLine size={30}/> : <RiMoonClearLine size={30}/>}
         </button>
     )
