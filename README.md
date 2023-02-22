@@ -22,10 +22,9 @@ For example, you are watching a 12hr Python Tutorial and you want to know your p
 
 
 ## 🎥Demo
-https://user-images.githubusercontent.com/84000523/219857770-50876774-1d82-4839-b856-cf97f2e7f842.mp4
+https://user-images.githubusercontent.com/84000523/220575821-9da11c57-90ea-454c-b73c-85a97ec0c79e.mp4
 
-
-## 👀[Live Demo](https://prxncxss03.github.io/trt-percentage-converter/)
+## 👉[Live Demo](https://prxncxss03.github.io/trt-percentage-converter/)👀
 
 ## Credits
 - [GeeksforGeeks](https://www.geeksforgeeks.org/how-to-add-dark-mode-in-reactjs-using-tailwind-css/
