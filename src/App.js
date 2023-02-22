@@ -69,11 +69,11 @@ function App() {
       return;
     }
     //if greater than 60
-    if (parseInt(userSec) > 60 || parseInt(userMin) > 60 ) {
+    if (parseInt(userSec) > 59 || parseInt(userMin) > 59 ) {
       setError1("Please enter a valid time");
       return;
     }
-    if (parseInt(totalMin) > 60 || parseInt(totalSec) > 60){
+    if (parseInt(totalMin) > 59 || parseInt(totalSec) > 59){
       setError2("Please enter a valid time");
       return;
     }
@@ -110,7 +110,7 @@ function App() {
       return;
     }
 
-    if (parseInt(totalMin2) > 60 || parseInt(totalSec2) > 60){
+    if (parseInt(totalMin2) > 59 || parseInt(totalSec2) > 59){
       setError3("Please enter a valid time");
       return;
     }
