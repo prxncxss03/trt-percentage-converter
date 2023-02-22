@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/trt-percentage-converter/static/css/main.944fb609.css",
-    "main.js": "/trt-percentage-converter/static/js/main.c26325c1.js",
+    "main.css": "/trt-percentage-converter/static/css/main.baec992d.css",
+    "main.js": "/trt-percentage-converter/static/js/main.efdcb9a3.js",
     "static/js/787.f5a441af.chunk.js": "/trt-percentage-converter/static/js/787.f5a441af.chunk.js",
     "index.html": "/trt-percentage-converter/index.html",
-    "main.944fb609.css.map": "/trt-percentage-converter/static/css/main.944fb609.css.map",
-    "main.c26325c1.js.map": "/trt-percentage-converter/static/js/main.c26325c1.js.map",
+    "main.baec992d.css.map": "/trt-percentage-converter/static/css/main.baec992d.css.map",
+    "main.efdcb9a3.js.map": "/trt-percentage-converter/static/js/main.efdcb9a3.js.map",
     "787.f5a441af.chunk.js.map": "/trt-percentage-converter/static/js/787.f5a441af.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.944fb609.css",
-    "static/js/main.c26325c1.js"
+    "static/css/main.baec992d.css",
+    "static/js/main.efdcb9a3.js"
   ]
 }
